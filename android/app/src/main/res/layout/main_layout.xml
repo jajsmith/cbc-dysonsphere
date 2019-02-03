@@ -10,7 +10,7 @@
         android:id="@+id/appbar_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorAccent"
+        android:background="#e60505"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:titleTextColor="@android:color/white"/>
@@ -54,31 +54,38 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:orientation="horizontal">
 
-        <Button
+        <ImageButton
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/back"/>
+
+        <ImageButton
             android:id="@+id/button_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="@string/play"/>
+            android:layout_weight="1"
+            android:src="@drawable/play32"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/button_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/pause"/>
+            android:src="@drawable/pause32"/>
 
-        <Button
-            android:id="@+id/button_reset"
+        <ImageButton
+            android:id="@+id/button_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/reset"/>
+            android:src="@drawable/forward"/>
     </LinearLayout>
 
     <FrameLayout android:id="@+id/body"
