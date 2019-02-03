@@ -1,6 +1,8 @@
 package com.example.dysonsphere;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +37,16 @@ public class ListViewFragment extends ListFragment
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
-        Toast.makeText(getActivity(), "Item: " + position, Toast.LENGTH_SHORT).show();
+        // Make new fragment to show this selection.
+        Fragment frag;
+        frag = DetailsFragment.newInstance(0);
+
+        // Execute a transaction, replacing any existing fragment
+        // with this one inside the frame.
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.body, frag);
+        ft.addToBackStack(null);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.commit();
     }
 }

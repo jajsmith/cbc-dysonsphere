@@ -2,6 +2,8 @@ package com.example.dysonsphere;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -25,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
         setSupportActionBar((Toolbar) findViewById(R.id.appbar_toolbar));
+
+        Fragment frag;
+        frag = new ListViewFragment();
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.body, frag);
+        ft.commit();
 
         initializeUI();
         initializeSeekbar();

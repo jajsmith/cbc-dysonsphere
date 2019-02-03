@@ -81,9 +81,10 @@
             android:text="@string/reset"/>
     </LinearLayout>
 
-    <fragment class="com.example.dysonsphere.ListViewFragment"
-        android:id="@+id/header" android:layout_weight="1"
+    <FrameLayout android:id="@+id/body"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="?android:attr/detailsElementBackground" />
 
 </LinearLayout>
