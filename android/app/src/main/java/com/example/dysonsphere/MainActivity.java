@@ -28,16 +28,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_layout);
         setSupportActionBar((Toolbar) findViewById(R.id.appbar_toolbar));
 
-        Fragment frag;
-        frag = new ListViewFragment();
+        initializeUI();
+        initializeSeekbar();
+        initializePlaybackController();
+
+        ListViewFragment frag = new ListViewFragment();
+        frag.setPlayerAdapter(mPlayerAdapter);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.add(R.id.body, frag);
         ft.commit();
 
-        initializeUI();
-        initializeSeekbar();
-        initializePlaybackController();
     }
 
     @Override
