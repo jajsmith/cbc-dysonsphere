@@ -1,10 +1,12 @@
 package com.example.dysonsphere;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +25,12 @@ import java.util.ArrayList;
 
 public class ListViewFragment extends ListFragment {
 
+    private PlayerAdapter mPlayerAdapter;
+    private int mCurrentIndex = -1;
+    private PodcastAdapter mAdapter;
+
+    private final ArrayList<Podcast> mPcasts = new ArrayList<Podcast>();
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,28 +46,58 @@ public class ListViewFragment extends ListFragment {
 //                R.layout.list_item, R.id.article_title, R.array.ArticleTitles);
 
         // Construct the data source
-        ArrayList<Podcast> pcasts = new ArrayList<Podcast>();
-        pcasts.add(new Podcast(Data.TITLES[0], Data.CONTENT[0], R.drawable.square_1));
-        pcasts.add(new Podcast(Data.TITLES[1], Data.CONTENT[1], R.drawable.square_2));
-        pcasts.add(new Podcast(Data.TITLES[2], Data.CONTENT[2], R.drawable.square_3));
+        mPcasts.add(new Podcast(Data.TITLES[0], Data.CONTENT[0], R.drawable.square_1, R.raw.clip1_bob));
+        mPcasts.add(new Podcast(Data.TITLES[1], Data.CONTENT[1], R.drawable.square_2, R.raw.clip2_bob));
+        mPcasts.add(new Podcast(Data.TITLES[2], Data.CONTENT[2], R.drawable.square_3, R.raw.clip3_bob));
 
         // Create the adapter to convert the array to views
-        PodcastAdapter adapter = new PodcastAdapter(getContext(), pcasts);
+        mAdapter = new PodcastAdapter(getContext(), mPcasts);
         // Attach the adapter to a ListView
         ListView listView = getActivity().findViewById(R.id.listview);
-        listView.setAdapter(adapter);
+        listView.setAdapter(mAdapter);
+    }
 
+    public void setPlayerAdapter(PlayerAdapter playerAdapter) {
+        this.mPlayerAdapter = playerAdapter;
+    }
+
+    private void play() {
+        mPlayerAdapter.loadMedia(mPcasts.get(mCurrentIndex).resource);
+        mPlayerAdapter.reset();
+        mPlayerAdapter.play();
+        mAdapter.notifyDataSetChanged();
+    }
+
+    public void playItem(int position) {
+        mCurrentIndex = position;
+        play();
+    }
+
+    public void playNext() {
+        if (mCurrentIndex < mPcasts.size()) {
+            mCurrentIndex++;
+            play();
+        }
+    }
+
+    public void playPrevious() {
+        if (mCurrentIndex > 0) {
+            mCurrentIndex--;
+            play();
+        }
     }
 
     public class Podcast {
         public String title;
         public String content;
         public int image;
+        public int resource;
 
-        public Podcast(String title, String content, int image) {
+        public Podcast(String title, String content, int image, int resource) {
             this.title = title;
             this.content = content;
             this.image = image;
+            this.resource = resource;
         }
     }
 
@@ -69,16 +107,30 @@ public class ListViewFragment extends ListFragment {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             // Get the data item for this position
-            Podcast podcast = getItem(position);
+            final Podcast podcast = getItem(position);
             // Check if an existing view is being reused, otherwise inflate the view
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
             }
+
+            // click listener for the view
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    playItem(position);
+                }
+            });
+
             // Lookup view for data population
             TextView title = (TextView) convertView.findViewById(R.id.article_title);
             title.setText(podcast.title);
+            if (mCurrentIndex == position) {
+                title.setTypeface(null, Typeface.BOLD);
+            } else {
+                title.setTypeface(null, Typeface.NORMAL);
+            }
 
             ImageView img = convertView.findViewById(R.id.image_view);
             img.setImageResource(podcast.image);
