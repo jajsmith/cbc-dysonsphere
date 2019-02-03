@@ -35,7 +35,7 @@
             android:layout_alignBottom="@id/header_image"
             android:layout_margin="1dp"
             android:gravity="center"
-            android:text="HEADER CONTENT"
+            android:text=""
             android:textSize="30dp"
             android:textStyle="bold"
             android:shadowColor="@android:color/black"
