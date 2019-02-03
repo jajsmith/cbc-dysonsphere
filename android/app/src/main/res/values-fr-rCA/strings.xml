@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dysonsphere</string>
+
+    <string name="lang">Lang: FR</string>
+
     <string name="play">Lire</string>
     <string name="pause">Pause</string>
     <string name="reset">Réinitialiser</string>
-    <string name="lang">Lang: FR</string>
+
+    <string-array name="ArticleTitles">
+        <item>Série: 2050: Degrés de changement. \nEpisode 5: Le feu et les forêts.</item>
+        <item>Série: Alberta @ midi de CBC Radio (Faits saillants) \nÉpisode: le lundi 6 novembre 2018</item>
+        <item>Série: Tout en un jour \nEpisode: Meilleur de la journée, 19 décembre 2018: "Blackberry Accelerator Program"</item>
+    </string-array>
 </resources>

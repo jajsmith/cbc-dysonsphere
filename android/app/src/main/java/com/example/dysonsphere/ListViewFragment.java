@@ -66,15 +66,21 @@ public class ListViewFragment extends ListFragment {
             mPlayerAdapter.loadMedia(mPcasts.get(mCurrentIndex).resource);
             mPlayerAdapter.reset();
             mPlayerAdapter.play();
+            mPcasts.get(mCurrentIndex);
+
+            ImageView img = getActivity().findViewById(R.id.header_image);
+            img.setImageResource(R.drawable.white);
+
+            TextView txt = getActivity().findViewById(R.id.header_text);
+            txt.setText(Data.HEADER_TEXT[mCurrentIndex]);
+            txt.setTextColor(getResources().getColor(R.color.black));
+        } else {
+            ImageView img = getActivity().findViewById(R.id.header_image);
+            img.setImageResource(R.drawable.white);
+
+            TextView txt = getActivity().findViewById(R.id.header_text);
+            txt.setText("");
         }
-        mPcasts.get(mCurrentIndex);
-
-        ImageView img = getActivity().findViewById(R.id.header_image);
-        img.setImageResource(R.drawable.white);
-
-        TextView txt = getActivity().findViewById(R.id.header_text);
-        txt.setText(Data.HEADER_TEXT[mCurrentIndex]);
-        txt.setTextColor(getResources().getColor(R.color.black));
 
         mAdapter.notifyDataSetChanged();
     }

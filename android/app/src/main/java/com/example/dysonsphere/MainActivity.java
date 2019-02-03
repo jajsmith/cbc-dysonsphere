@@ -6,10 +6,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -82,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeUI() {
+//        TextView mTextView = (TextView) findViewById(R.id.header_text);
+//        mTextView.setMovementMethod(new ScrollingMovementMethod());
         mSeekbarAudio = (SeekBar) findViewById(R.id.seekbar_audio);
         ImageButton mPlayButton = (ImageButton) findViewById(R.id.button_play);
         ImageButton mPauseButton = (ImageButton) findViewById(R.id.button_pause);
