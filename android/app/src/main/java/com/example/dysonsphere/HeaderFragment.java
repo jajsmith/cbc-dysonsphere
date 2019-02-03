@@ -53,7 +53,7 @@ public class HeaderFragment extends Fragment {
         if (isDetails) {
             frag = DetailsFragment.newInstance(0);
         } else {
-            frag  = new TitlesFragment();
+            frag  = new ListViewFragment();
         }
 
         // Execute a transaction, replacing any existing fragment

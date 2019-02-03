@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Dysonsphere</string>
+
+    <string-array name="ArticleTitles">
+        <item>Test article 1</item>
+        <item>Test article 2</item>
+        <item>Test article 3</item>
+        <item>Test article 4</item>
+        <item>Test article 5</item>
+    </string-array>
 </resources>
