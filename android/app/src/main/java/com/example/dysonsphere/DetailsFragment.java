@@ -49,7 +49,7 @@ public class DetailsFragment extends Fragment {
                 4, getActivity().getResources().getDisplayMetrics());
         text.setPadding(padding, padding, padding, padding);
         scroller.addView(text);
-        text.setText(Shakespeare.DIALOGUE[getShownIndex()]);
+        text.setText(Data.CONTENT[getShownIndex()]);
         return scroller;
     }
 }
