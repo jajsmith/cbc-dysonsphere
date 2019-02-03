@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private PlayerAdapter mPlayerAdapter;
     private boolean mUserIsSeeking = false;
 
+    private ListViewFragment mListFrag;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
         initializeSeekbar();
         initializePlaybackController();
 
-        ListViewFragment frag = new ListViewFragment();
-        frag.setPlayerAdapter(mPlayerAdapter);
+        mListFrag = new ListViewFragment();
+        mListFrag.setPlayerAdapter(mPlayerAdapter);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.body, frag);
+        ft.add(R.id.body, mListFrag);
         ft.commit();
 
     }
@@ -162,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onPlaybackCompleted() {
-
+            mListFrag.playNext();
         }
     }
 }
