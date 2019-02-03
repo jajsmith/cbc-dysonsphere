@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Dysonsphere</string>
 
+    <string name="lang">Lang: EN</string>
+
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="reset">Reset</string>
+
     <string-array name="ArticleTitles">
         <item>Series: 2050: Degrees of Change\nEpisode: Episode 5 - Fire and Forests</item>
         <item>Series: Alberta@Noon from CBC Radio (Highlights)\nEpisode: Monday, November 6, 2018</item>
