@@ -161,6 +161,14 @@ public class ListViewFragment extends ListFragment {
                     ft.addToBackStack(null);
                     ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                     ft.commit();
+
+                    ImageView img = getActivity().findViewById(R.id.header_image);
+                    img.setImageResource(Data.HEADER_IMAGES[position]);
+
+                    // TODO : move this to wherever we're updating the bold stuff
+//                    TextView txt = getActivity().findViewById(R.id.header_text);
+//                    txt.setText(Data.HEADER_TEXT[position]);
+//                    txt.setTextColor(getResources().getColor(R.color.white));
                 }
             });
 
