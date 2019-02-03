@@ -9,7 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-public class ListViewFragment extends ListFragment implements AdapterView.OnItemClickListener {
+public class ListViewFragment extends ListFragment
+        implements AdapterView.OnItemClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -22,8 +23,11 @@ public class ListViewFragment extends ListFragment implements AdapterView.OnItem
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+//                R.layout.list_item, R.id.article_title, R.array.ArticleTitles);
+
         ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.ArticleTitles, R.layout.list_item);
+                R.array.ArticleTitles, android.R.layout.simple_list_item_1);
 
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
