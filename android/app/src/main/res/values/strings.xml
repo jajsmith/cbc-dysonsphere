@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Dysonsphere</string>
 
+    <string name="lang">Lang: EN</string>
+
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="reset">Reset</string>
+
     <string-array name="ArticleTitles">
         <item>Test article 1</item>
         <item>Test article 2</item>
