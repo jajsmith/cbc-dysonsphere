@@ -62,9 +62,11 @@ public class ListViewFragment extends ListFragment {
     }
 
     private void play() {
-        mPlayerAdapter.loadMedia(mPcasts.get(mCurrentIndex).resource);
-        mPlayerAdapter.reset();
-        mPlayerAdapter.play();
+        if (mCurrentIndex >= 0) {
+            mPlayerAdapter.loadMedia(mPcasts.get(mCurrentIndex).resource);
+            mPlayerAdapter.reset();
+            mPlayerAdapter.play();
+        }
         mAdapter.notifyDataSetChanged();
     }
 
@@ -74,17 +76,22 @@ public class ListViewFragment extends ListFragment {
     }
 
     public void playNext() {
-        if (mCurrentIndex < mPcasts.size()) {
+        if (mCurrentIndex < mPcasts.size() - 1) {
             mCurrentIndex++;
-            play();
+        } else {
+            mCurrentIndex = -1;
         }
+        play();
     }
 
     public void playPrevious() {
         if (mCurrentIndex > 0) {
             mCurrentIndex--;
-            play();
+        } else {
+            mCurrentIndex = -1;
         }
+
+        play();
     }
 
     public class Podcast {
