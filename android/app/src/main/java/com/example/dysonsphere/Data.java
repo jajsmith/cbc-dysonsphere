@@ -25,7 +25,7 @@ public class Data {
     public static final String[] HEADER_TEXT =
             {
                     "By 2050 we’ll be facing more fires and more disasters like the wildfire that ripped through Fort McMurry, AB, destroying homes and displacing nearly 90,000 people",
-                    "Two students wiped out their students debt by renting their faces to advertisers",
+                    "In Japan, for example, you can place ads on people's arm pits! Two students wiped out their students debt by renting their faces to advertisers",
                     "So simply put, your phone will be your digital identity everywhere. I just five minutes before this interview, I went across the street to try to buy a coffee with no cash in my wallet, and my phone wouldn’t pay for the coffee. I put it down on the reader, and it is your system going to work better than my phone did happen. Omar. It’ll definitely okay. It’ll death. Good cause we got locked out of your car because your phone goes dead. Something could be a problem."
             };
     public class Podcast {
