@@ -157,6 +157,8 @@ public class ListViewFragment extends ListFragment {
 
                     ImageView img = getActivity().findViewById(R.id.header_image);
                     img.setImageResource(Data.HEADER_IMAGES[position]);
+                    TextView txt = getActivity().findViewById(R.id.header_text);
+                    txt.setText("");
 
                     // TODO : move this to wherever we're updating the bold stuff
 //                    TextView txt = getActivity().findViewById(R.id.header_text);
