@@ -46,9 +46,9 @@ public class ListViewFragment extends ListFragment {
 //                R.layout.list_item, R.id.article_title, R.array.ArticleTitles);
 
         // Construct the data source
-        mPcasts.add(new Podcast(Data.TITLES[0], Data.CONTENT[0], R.drawable.square_1, R.raw.clip1_bob));
-        mPcasts.add(new Podcast(Data.TITLES[1], Data.CONTENT[1], R.drawable.square_2, R.raw.clip2_bob));
-        mPcasts.add(new Podcast(Data.TITLES[2], Data.CONTENT[2], R.drawable.square_3, R.raw.clip3_bob));
+        mPcasts.add(new Podcast(Data.TITLES[0], Data.CONTENT[0], R.drawable.square_1, R.raw.clip1_claire));
+        mPcasts.add(new Podcast(Data.TITLES[1], Data.CONTENT[1], R.drawable.square_2, R.raw.clip2_claire));
+        mPcasts.add(new Podcast(Data.TITLES[2], Data.CONTENT[2], R.drawable.square_3, R.raw.clip3_claire));
 
         // Create the adapter to convert the array to views
         mAdapter = new PodcastAdapter(getContext(), mPcasts);
