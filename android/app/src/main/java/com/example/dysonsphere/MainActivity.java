@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton mPlayButton = (ImageButton) findViewById(R.id.button_play);
         ImageButton mPauseButton = (ImageButton) findViewById(R.id.button_pause);
         ImageButton mResetButton = (ImageButton) findViewById(R.id.button_back);
+        ImageButton mPreviousButton = (ImageButton) findViewById(R.id.button_back);
         ImageButton mForwardButton = (ImageButton) findViewById(R.id.button_next);
 
         mPauseButton.setOnClickListener(
@@ -107,6 +108,22 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         mPlayerAdapter.reset();
+                    }
+                });
+
+        mPreviousButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mListFrag.playPrevious();
+                    }
+                });
+
+        mForwardButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mListFrag.playNext();
                     }
                 });
     }
